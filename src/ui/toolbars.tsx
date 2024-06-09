@@ -44,14 +44,12 @@ export const ShopPageToolBar = () => {
               role="menu"
               aria-orientation="vertical"
               aria-labelledby="menu-button"
-              tabIndex="-1"
             >
               <div className="py-1" role="none">
                 <a
                   href="#"
                   className="text-gray-700 block px-4 py-2 text-sm"
                   role="menuitem"
-                  tabIndex="-1"
                   id="menu-item-0"
                 >
                   Account settings
@@ -60,7 +58,6 @@ export const ShopPageToolBar = () => {
                   href="#"
                   className="text-gray-700 block px-4 py-2 text-sm"
                   role="menuitem"
-                  tabIndex="-1"
                   id="menu-item-1"
                 >
                   Support
@@ -69,7 +66,6 @@ export const ShopPageToolBar = () => {
                   href="#"
                   className="text-gray-700 block px-4 py-2 text-sm"
                   role="menuitem"
-                  tabIndex="-1"
                   id="menu-item-2"
                 >
                   License
@@ -79,7 +75,6 @@ export const ShopPageToolBar = () => {
                     type="submit"
                     className="text-gray-700 block w-full px-4 py-2 text-left text-sm"
                     role="menuitem"
-                    tabIndex="-1"
                     id="menu-item-3"
                   >
                     Sign out
