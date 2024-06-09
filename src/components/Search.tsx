@@ -10,7 +10,6 @@ const Search = ({
   return (
     <div
       id="default-modal"
-      tabIndex="-1"
       aria-hidden="true"
       className={`${
         isModalOpen ? "" : "hidden"
