@@ -1,5 +1,5 @@
 export async function getBlogs() {
-  const res = await fetch(`http://localhost:3000/api/blogs`, {
+  const res = await fetch(`https://ecommerce-2024-gray.vercel.app/api/blogs`, {
     cache: "no-store",
   });
 
@@ -11,7 +11,7 @@ export async function getBlogs() {
   return res.json();
 }
 export async function getProducts() {
-  const res = await fetch(`http://localhost:3000/api/shop`, {
+  const res = await fetch(`https://ecommerce-2024-gray.vercel.app/api/shop`, {
     cache: "no-store",
   });
 
@@ -23,9 +23,12 @@ export async function getProducts() {
   return res.json();
 }
 export async function getBlogById(id: any) {
-  const res = await fetch(`http://localhost:3000/api/blogs/${id}`, {
-    cache: "no-store",
-  });
+  const res = await fetch(
+    `https://ecommerce-2024-gray.vercel.app/api/blogs/${id}`,
+    {
+      cache: "no-store",
+    }
+  );
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -36,9 +39,12 @@ export async function getBlogById(id: any) {
 }
 
 export async function getCategories() {
-  const res = await fetch(`http://localhost:3000/api/categories`, {
-    cache: "no-store",
-  });
+  const res = await fetch(
+    `https://ecommerce-2024-gray.vercel.app/api/categories`,
+    {
+      cache: "no-store",
+    }
+  );
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -48,7 +54,7 @@ export async function getCategories() {
   return res.json();
 }
 export async function getTags() {
-  const res = await fetch(`http://localhost:3000/api/tags`, {
+  const res = await fetch(`https://ecommerce-2024-gray.vercel.app/api/tags`, {
     cache: "no-store",
   });
 
