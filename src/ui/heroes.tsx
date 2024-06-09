@@ -33,7 +33,7 @@ export const ContactHero = () => {
       <div className="max-w-6xl m-auto text-center">
         <p className="text-blue-500 font-semibold">Need Help?</p>
         <h1 className=" text-6xl max-w-xl">
-          Haven't found what your're looking for? Contact us
+          Haven&apos;t found what your&apos;re looking for? Contact us
         </h1>
       </div>
     </div>
