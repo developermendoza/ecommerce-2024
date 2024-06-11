@@ -1,5 +1,5 @@
 export async function getBlogs() {
-  const res = await fetch(`https://ecommerce-2024-gray.vercel.app/api/blogs`, {
+  const res = await fetch(`https://ecommerce-2024-gray.vercel.app/api/blog`, {
     cache: "no-store",
   });
 
@@ -24,7 +24,7 @@ export async function getProducts() {
 }
 export async function getBlogById(id: any) {
   const res = await fetch(
-    `https://ecommerce-2024-gray.vercel.app/api/blogs/${id}`,
+    `https://ecommerce-2024-gray.vercel.app/api/blog/${id}`,
     {
       cache: "no-store",
     }

@@ -1,8 +1,7 @@
 import { getBlogById } from "@/utils";
 import Image from "next/image";
 
-const Blog = async ({ id }: { id: string }) => {
-  const { blog } = await getBlogById(id);
+const Blog = ({ blog }: { blog: any }) => {
   return (
     <div className="col-span-2">
       <p className="font-semibold uppercase">{blog.category}</p>

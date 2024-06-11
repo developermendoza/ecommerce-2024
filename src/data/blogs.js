@@ -1,4 +1,4 @@
-const blogs = [
+export const blogs = [
   {
     id: 1,
     title: "As People move out of big cities, fashion retail Followns",
@@ -40,8 +40,3 @@ const blogs = [
     featuredImage: "/images/blog/blog-05.jpeg",
   },
 ];
-export function GET(request, { params }) {
-  const blogId = parseInt(params.id);
-  const blog = blogs.find((blog) => blog.id === blogId);
-  return Response.json({ blog });
-}

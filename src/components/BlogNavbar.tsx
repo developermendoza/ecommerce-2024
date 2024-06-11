@@ -2,7 +2,6 @@ import { getBlogById } from "@/utils";
 import Link from "next/link";
 import React from "react";
 import { FaAngleRight } from "react-icons/fa6";
-import { BlogNavbarSkeleton } from "@/ui/skeletons";
 
 const BlogNavbar = async ({ id }: { id: string }) => {
   const { blog } = await getBlogById(id);

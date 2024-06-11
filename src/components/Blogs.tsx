@@ -3,8 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const Blogs = async () => {
-  const { blogs } = await getBlogs();
+const Blogs = ({ blogs }: { blogs: any[] }) => {
   return (
     <div className="col-span-3 grid grid-cols-3 gap-6">
       {blogs.map((blog: any) => (
