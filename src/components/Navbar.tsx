@@ -135,7 +135,9 @@ const Navbar = () => {
               <SearchIcon />
             </li>
             <li>
-              <UserIcon />
+              <Link href="/login">
+                <UserIcon />
+              </Link>
             </li>
             <li>
               <HeartIcon />

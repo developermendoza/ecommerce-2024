@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { PrimaryButton } from "./buttons";
 import { FaRegCircle, FaCircle } from "react-icons/fa";
+import landingHeroLeft from "../../public/images/shop/hero-1-01.png";
+import landingHeroRight from "../../public/images/shop/hero-1-02.png";
 
 export function HeroCarousel({
   title,
@@ -17,12 +19,13 @@ export function HeroCarousel({
   buttonUrl: string;
 }) {
   return (
-    <div className="flex items-center gap-6 max-w-6xl m-auto relative">
-      <div className="relative">
+    <div className="flex items-center gap-6 max-w-6xl overflow-hidden m-auto relative">
+      <div className="relative  ">
         <Image
-          src="/images/shop/hero-1-01.png"
+          src={landingHeroLeft}
           width={500}
           height={500}
+          placeholder="blur"
           alt="Picture of the author"
         />
       </div>
@@ -39,14 +42,13 @@ export function HeroCarousel({
       </div>
       <div className="relative">
         <Image
-          src="/images/shop/hero-1-02.png"
+          src={landingHeroRight}
           width={500}
           height={500}
+          placeholder="blur"
           alt="Picture of the author"
         />
       </div>
     </div>
   );
 }
-
-export function CollactionCarousel({}) {}

@@ -1,18 +1,22 @@
 export const categories = [
   {
     id: 1,
-    name: "Men",
+    name: "Kid's",
+    featuredImage: "/images/shop/kids-clothing-01.png",
   },
   {
     id: 2,
-    name: "Women",
+    name: "Men",
+    featuredImage: "/images/shop/man-sweater-01.png",
   },
   {
     id: 3,
-    name: "Kids",
+    name: "Skirts",
+    featuredImage: "/images/shop/woman-skirt-01.png",
   },
   {
     id: 4,
-    name: "Pants",
+    name: "Shirts",
+    featuredImage: "/images/shop/woman-shirt-01.png",
   },
 ];

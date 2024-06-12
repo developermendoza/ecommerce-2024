@@ -53,6 +53,7 @@ export async function getCategories() {
 
   return res.json();
 }
+
 export async function getTags() {
   const res = await fetch(`https://ecommerce-2024-gray.vercel.app/api/tags`, {
     cache: "no-store",
