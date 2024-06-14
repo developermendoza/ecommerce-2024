@@ -3,13 +3,15 @@ import Image from "next/image";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
 import Link from "next/link";
+import registerImage from "../../../public/images/login/register-01.jpg";
 
 const RegisterPage = () => {
   return (
     <div className="grid grid-cols-2">
       <div className="relative w-full h-[850px]">
         <Image
-          src="/images/login/register-01.jpg"
+          src={registerImage}
+          placeholder="blur"
           alt=""
           fill
           style={{ objectFit: "cover" }}

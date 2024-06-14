@@ -3,6 +3,7 @@ import Image from "next/image";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
 import Link from "next/link";
+import loginImage from "../../../public/images/login/login-01.jpg";
 
 const LoginPage = () => {
   return (
@@ -111,9 +112,10 @@ const LoginPage = () => {
       </div>
       <div className="relative w-full h-[850px]">
         <Image
-          src="/images/login/login-01.jpg"
+          src={loginImage}
           alt=""
           fill
+          placeholder="blur"
           style={{ objectFit: "cover" }}
         />
       </div>
