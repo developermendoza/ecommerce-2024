@@ -11,7 +11,7 @@ export function ShopHero() {
         fill
         alt=""
       />
-      <div className="relative max-w-6xl m-auto h-[350px] px-2">
+      <div className="relative max-w-6xl m-auto h-[350px] px-6">
         <div className="max-w-6xl m-auto h-[350px] flex flex-col justify-center">
           <h1 className="text-6xl">Shop</h1>
           <div className="flex gap-2 items-center">

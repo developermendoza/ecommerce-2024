@@ -149,11 +149,13 @@ const ShopPage = () => {
   return (
     <main>
       <ShopHero />
-      <div className="max-w-6xl m-auto py-14">
+      <div className="max-w-6xl m-auto py-14 px-6">
         <ShopPageToolBar />
         <div className="grid grid-cols-4 gap-8">
-          <ShopSideBar />
-          <div className="grid grid-cols-3 gap-8 col-span-3">
+          <div className="hidden lg:block">
+            <ShopSideBar />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 col-span-4 lg:col-span-3">
             {shop.map(
               (product) =>
                 product.category === "Mens" &&

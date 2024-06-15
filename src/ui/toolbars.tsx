@@ -3,12 +3,17 @@ import { useState } from "react";
 import { IoReorderTwoSharp } from "react-icons/io5";
 import { IoReorderThreeSharp } from "react-icons/io5";
 import { IoReorderFour } from "react-icons/io5";
+import { IoFilter } from "react-icons/io5";
 
 export const ShopPageToolBar = () => {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   return (
     <div className="grid grid-cols-4 gap-4 pb-8">
-      <h2 className="text-3xl font-semibold ">Filter</h2>
+      <div>
+        <h2 className="text-3xl font-semibold hidden lg:block">Filter</h2>
+        <IoFilter className=" lg:hidden" />
+      </div>
+
       <div className="col-span-3 flex justify-between items-center">
         <p className="text-gray-600">Showing 9 of 18 products</p>
         <div className="flex justify-between items-center">
