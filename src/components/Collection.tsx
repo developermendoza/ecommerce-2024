@@ -4,7 +4,6 @@ import {
 } from "react-icons/md";
 import Image from "next/image";
 import { getCategories } from "@/utils";
-import { LandingCollectionCarousel } from "@/ui/carousels";
 
 const Collection = async () => {
   const { categories } = await getCategories();
