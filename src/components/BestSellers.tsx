@@ -40,7 +40,7 @@ const BestSellers = async () => {
               </div>
             ))}
           </div>
-          <div className="mt-10">
+          <div className="mt-10 md:flex justify-center">
             <SecondaryButton buttonUrl="/shop" buttonName="Explore More" />
           </div>
         </div>
