@@ -192,7 +192,7 @@ const CartPage = () => {
                 className="grid grid-cols-8 items-center bg-[#eee] p-2 mb-4 relative"
                 key={item.id}
               >
-                <div className="flex gap-4 items-center col-span-2">
+                <div className="flex gap-4 items-center col-span-6 md:col-span-2">
                   <div className="relative h-[100px] w-[100px] bg-gray-100">
                     <Image
                       src={item.image}
@@ -215,9 +215,129 @@ const CartPage = () => {
                         Size: <span className="font-semibold">{item.size}</span>
                       </p>
                     </div>
+                    <div className=" md:hidden col-span-4 text-center m-auto">
+                      <form className="max-w-xs ">
+                        <div className="relative flex items-center max-w-[8rem]">
+                          <button
+                            type="button"
+                            id="decrement-button"
+                            data-input-counter-decrement="quantity-input"
+                            className="bg-gray-100 hover:bg-gray-200 border border-gray-300 rounded-s-lg p-3 h-11 focus:ring-gray-100  focus:ring-2 focus:outline-none"
+                          >
+                            <svg
+                              className="w-3 h-3 text-gray-900 dark:text-white"
+                              aria-hidden="true"
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 18 2"
+                            >
+                              <path
+                                stroke="currentColor"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="M1 1h16"
+                              />
+                            </svg>
+                          </button>
+                          <input
+                            type="text"
+                            id="quantity-input"
+                            data-input-counter
+                            aria-describedby="helper-text-explanation"
+                            className="bg-gray-50 border-x-0 border-gray-300 h-11 text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5"
+                            placeholder="1"
+                            value={item.quantity}
+                            required
+                          />
+                          <button
+                            type="button"
+                            id="increment-button"
+                            data-input-counter-increment="quantity-input"
+                            className="bg-gray-100 hover:bg-gray-200 border border-gray-300 rounded-e-lg p-3 h-11 focus:ring-gray-100  focus:ring-2 focus:outline-none"
+                          >
+                            <svg
+                              className="w-3 h-3 text-gray-900 "
+                              aria-hidden="true"
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 18 18"
+                            >
+                              <path
+                                stroke="currentColor"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="M9 1v16M1 9h16"
+                              />
+                            </svg>
+                          </button>
+                        </div>
+                      </form>
+                    </div>
                   </div>
                 </div>
-                <div className="col-span-4 text-center m-auto">
+                {/* <div className="col-span-4 text-center m-auto">
+                  <form className="max-w-xs ">
+                    <div className="relative flex items-center max-w-[8rem]">
+                      <button
+                        type="button"
+                        id="decrement-button"
+                        data-input-counter-decrement="quantity-input"
+                        className="bg-gray-100 hover:bg-gray-200 border border-gray-300 rounded-s-lg p-3 h-11 focus:ring-gray-100  focus:ring-2 focus:outline-none"
+                      >
+                        <svg
+                          className="w-3 h-3 text-gray-900 dark:text-white"
+                          aria-hidden="true"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 18 2"
+                        >
+                          <path
+                            stroke="currentColor"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M1 1h16"
+                          />
+                        </svg>
+                      </button>
+                      <input
+                        type="text"
+                        id="quantity-input"
+                        data-input-counter
+                        aria-describedby="helper-text-explanation"
+                        className="bg-gray-50 border-x-0 border-gray-300 h-11 text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5"
+                        placeholder="1"
+                        value={item.quantity}
+                        required
+                      />
+                      <button
+                        type="button"
+                        id="increment-button"
+                        data-input-counter-increment="quantity-input"
+                        className="bg-gray-100 hover:bg-gray-200 border border-gray-300 rounded-e-lg p-3 h-11 focus:ring-gray-100  focus:ring-2 focus:outline-none"
+                      >
+                        <svg
+                          className="w-3 h-3 text-gray-900 "
+                          aria-hidden="true"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 18 18"
+                        >
+                          <path
+                            stroke="currentColor"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M9 1v16M1 9h16"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  </form>
+                </div> */}
+                <div className="col-span-4 hidden md:block text-center m-auto">
                   <form className="max-w-xs ">
                     <div className="relative flex items-center max-w-[8rem]">
                       <button
@@ -278,7 +398,8 @@ const CartPage = () => {
                   </form>
                 </div>
 
-                <div className="col-span-2 ">
+                <div className="col-span-2">
+                  {/* <div className="col-span-2 "> */}
                   <FaTimes className="absolute top-4 right-4" />
                   <p className="font-semibold text-gray-600 text-center">
                     ${item.price}
@@ -295,13 +416,20 @@ const CartPage = () => {
               ${total}.00
             </p>
           </div>
-          <div className="mt-8 flex justify-between items-center">
-            <SecondaryButton buttonUrl="/shop" buttonName="Continue Shopping" />
-            <PrimaryButton buttonUrl="/checkout" buttonName="Checkout" />
+          <div className="mt-8 sm:flex gap-4 justify-between items-center">
+            <div>
+              <SecondaryButton
+                buttonUrl="/shop"
+                buttonName="Continue Shopping"
+              />
+            </div>
+            <div className="mt-4 sm:mt-0">
+              <PrimaryButton buttonUrl="/checkout" buttonName="Checkout" />
+            </div>
           </div>
           <div className="mt-20">
             <h2 className="font-semibold mb-6">You May Also Like</h2>
-            <div className="grid grid-cols-4 gap-8">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {shop.map(
                 (product) =>
                   product.category === "Mens" &&
@@ -316,7 +444,7 @@ const CartPage = () => {
                           alt=""
                         />
                       </div>
-                      <div className="capitalize text-left mt-4 text-sm">
+                      <div className="capitalize text-center lg:text-left mt-4 text-sm">
                         <p className="font-bold text-sm">{item.name}</p>
                         <p className="font-semibold text-gray-700">
                           ${item.price}.00

@@ -40,7 +40,7 @@ const BestSellers = async () => {
               </div>
             ))}
           </div>
-          <div className="mt-12">
+          <div className="mt-10">
             <SecondaryButton buttonUrl="/shop" buttonName="Explore More" />
           </div>
         </div>
