@@ -3,6 +3,7 @@ import { ShopPageToolBar } from "@/ui/toolbars";
 import { IoIosArrowUp } from "react-icons/io";
 import Image from "next/image";
 import { ShopSideBar } from "@/ui/sidebars";
+import { IoFilter } from "react-icons/io5";
 
 const shop = [
   {
