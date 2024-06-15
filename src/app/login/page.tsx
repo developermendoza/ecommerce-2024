@@ -8,8 +8,8 @@ import loginImage from "../../../public/images/login/login-01.jpg";
 const LoginPage = () => {
   return (
     <div className="grid grid-cols-2">
-      <div className="flex flex-col justify-center items-center">
-        <div className="sm:mx-auto sm:w-full sm:max-w-sm text-left">
+      <div className="flex flex-col col-span-2 lg:col-span-1 py-20 lg:py-0 justify-center items-center px-4">
+        <div className="w-full max-w-sm text-left">
           <h1 className="text-4xl font-bold">Guza</h1>
           <h2 className="mt-10 text-left text-2xl font-bold leading-9 tracking-tight text-gray-900">
             Sign in to your account
@@ -25,7 +25,7 @@ const LoginPage = () => {
           </p>
         </div>
 
-        <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+        <div className="mt-10 sm:mx-auto  w-full max-w-sm md:max-w-auto">
           <form className="space-y-6" action="#" method="POST">
             <div>
               <label
@@ -110,7 +110,7 @@ const LoginPage = () => {
           </div>
         </div>
       </div>
-      <div className="relative w-full h-[850px]">
+      <div className="hidden relative lg:block w-full h-[850px]">
         <Image
           src={loginImage}
           alt=""
