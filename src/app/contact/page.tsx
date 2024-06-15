@@ -17,9 +17,9 @@ const ContactPage = () => {
           alt=""
         />
       </div>
-      <div className="max-w-6xl m-auto py-20">
+      <div className="max-w-6xl m-auto py-20 px-4">
         <div className="grid grid-cols-6 gap-4">
-          <div className="col-span-2">
+          <div className="col-span-6 md:col-span-2">
             <div className="mb-10">
               <h2 className="text-3xl font-semibold">Address</h2>
               <p className="text-gray-600 py-4">
@@ -51,7 +51,7 @@ const ContactPage = () => {
               </div>
             </div>
           </div>
-          <div className="col-span-4">
+          <div className="col-span-6 md:col-span-4">
             <h2 className="text-3xl font-semibold">Get in Touch</h2>
             <p className="text-gray-600 py-4">
               Your email address will not be published. Required fields are
