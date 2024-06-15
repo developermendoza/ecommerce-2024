@@ -5,10 +5,13 @@ import React from "react";
 
 const Blogs = ({ blogs }: { blogs: any[] }) => {
   return (
-    <div className="col-span-3 grid grid-cols-3 gap-6">
+    <div className="col-span-4 md:col-span-3 grid grid-cols-3 gap-6">
       {blogs.map((blog: any) => (
-        <div className="col-span-3 grid grid-cols-3 gap-6" key={blog.id}>
-          <div className="relative h-[350px] w-auto">
+        <div
+          className="col-span-3 grid grid-cols-2 md:grid-cols-3 gap-6"
+          key={blog.id}
+        >
+          <div className="relative h-[350px] w-auto col-span-2 md:col-span-1">
             <Image
               alt=""
               src={blog.featuredImage}

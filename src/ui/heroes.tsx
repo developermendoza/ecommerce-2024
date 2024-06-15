@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { IoChevronForwardSharp } from "react-icons/io5";
 import Image from "next/image";
+import { IoIosArrowForward } from "react-icons/io";
 
 export function ShopHero() {
   return (
@@ -58,6 +59,21 @@ export const AboutHero = () => {
             Believe In Craftsmanship And Luxurious Design.
           </h1>
         </div>
+      </div>
+    </div>
+  );
+};
+
+export const BlogHero = () => {
+  return (
+    <div className="text-center py-16 ">
+      <h1 className="text-6xl font-semibold">Our Stories</h1>
+      <div className="flex gap-2 items-center justify-center mt-4">
+        <Link href="/" className="font-semibold ">
+          Home
+        </Link>
+        <IoIosArrowForward className="text-gray-500" />
+        <p className="text-gray-500">Blog</p>
       </div>
     </div>
   );

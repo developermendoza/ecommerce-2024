@@ -8,7 +8,7 @@ const BlogNavbar = async ({ id }: { id: string }) => {
 
   return (
     <div className="bg-gray-100 ">
-      <div className="max-w-6xl m-auto font-light flex gap-2 text-gray-500 py-3 items-center">
+      <div className="max-w-6xl m-auto font-light flex gap-2 text-gray-500 py-3 items-center px-4">
         <p className="font-semibold">Home</p>
         <FaAngleRight />
 
@@ -17,7 +17,6 @@ const BlogNavbar = async ({ id }: { id: string }) => {
         </Link>
         <FaAngleRight />
         <p>{blog.title}</p>
-        {/* {blog ? <p>{blog?.title}</p> : <p>...Loading</p>} */}
       </div>
     </div>
   );

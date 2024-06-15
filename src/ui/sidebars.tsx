@@ -218,7 +218,7 @@ export const BlogSidebar = async () => {
   const { categories } = await getCategories();
   const { tags } = await getTags();
   return (
-    <aside>
+    <aside className="col-span-4 md:col-span-1">
       <div className="mb-10">
         <h3 className="font-semibold text-xl mb-4">Categories</h3>
         <Categories categories={categories} />

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Blog = ({ blog }: { blog: any }) => {
   return (
-    <div className="col-span-2">
+    <div className="col-span-3 md:col-span-2">
       <p className="font-semibold uppercase">{blog.category}</p>
       <h1 className="text-5xl font-semibold max-w-2xl py-4">{blog.title}</h1>
 
