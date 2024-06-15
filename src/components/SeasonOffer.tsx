@@ -6,8 +6,8 @@ const SeasonOffer = () => {
   return (
     <section className="pb-24">
       <div className="max-w-6xl m-auto">
-        <div className="grid grid-cols-2 h-[500px]">
-          <div className="relative ">
+        <div className="grid grid-cols-2 px-6">
+          <div className="relative col-span-2 h-[500px]  md:col-span-1">
             <Image
               src="/images/sales/summer-2024.jpeg"
               fill
@@ -17,7 +17,7 @@ const SeasonOffer = () => {
               alt=""
             />
           </div>
-          <div className="bg-[#f6e6cf] flex justify-center items-center p-10">
+          <div className="bg-[#f6e6cf] flex justify-center items-center p-10 h-[500px] col-span-2 md:col-span-1">
             <div className="text-center">
               <p className="font-semibold">SALE EVENT</p>
               <div className="py-2">

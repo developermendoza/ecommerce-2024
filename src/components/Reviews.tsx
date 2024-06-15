@@ -4,7 +4,7 @@ import { FaCircle } from "react-icons/fa";
 const Reviews = () => {
   return (
     <section className="pb-24">
-      <div className="max-w-6xl m-auto">
+      <div className="max-w-6xl m-auto px-6">
         <h2 className="text-3xl font-semibold mb-10 text-center">
           Customer Reviews
         </h2>

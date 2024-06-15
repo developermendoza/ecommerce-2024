@@ -4,14 +4,14 @@ import {
 } from "react-icons/md";
 import Image from "next/image";
 import { getCategories } from "@/utils";
-import path from "path";
+import { LandingCollectionCarousel } from "@/ui/carousels";
 
 const Collection = async () => {
   const { categories } = await getCategories();
 
   return (
     <section className="py-24">
-      <div className="max-w-6xl m-auto">
+      <div className="max-w-6xl m-auto px-6">
         <div className="flex justify-between items-center">
           <h2 className="text-3xl font-semibold mb-10">Shop by Collection</h2>
           <div className="flex gap-4 text-3xl">
@@ -23,7 +23,7 @@ const Collection = async () => {
           {categories.map((category: any) => (
             <div
               key={category.id}
-              className="w-[100%] h-[400px] bg-[#f1f1f1] relative text-center m-auto flex flex-col justify-center items-center"
+              className="w-[100%] col-span-4 md:col-span-2 lg:col-span-1 h-[400px] bg-[#f1f1f1] relative text-center m-auto flex flex-col justify-center items-center"
             >
               <Image
                 src={category.featuredImage}

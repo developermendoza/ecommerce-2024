@@ -8,7 +8,7 @@ const BestSellers = async () => {
   const { categories } = await getCategories();
   return (
     <section className="pb-24">
-      <div className="max-w-6xl m-auto">
+      <div className="max-w-6xl m-auto px-6">
         <div className="text-center">
           <h2 className="text-3xl font-semibold mb-10">Best Sellers</h2>
           <div className="flex justify-center gap-6 text-gray-600 mb-8">
@@ -18,7 +18,10 @@ const BestSellers = async () => {
           </div>
           <div className="grid grid-cols-4 gap-8">
             {products.splice(0, 7).map((product: any, index: any) => (
-              <div key={index}>
+              <div
+                key={index}
+                className="col-span-4 md:col-span-2 lg:col-span-1"
+              >
                 <div className="w-[100%] h-[400px] bg-[#f1f1f1] relative">
                   <Image
                     src={product.featuredImage}
