@@ -51,7 +51,7 @@ export const AboutHero = () => {
           objectFit: "cover",
         }}
       />
-      <div className="relative max-w-6xl m-auto h-[650px] px-2">
+      <div className="relative max-w-6xl text-center md:text-left m-auto h-[650px] px-2">
         <div className="max-w-6xl m-auto h-[650px] flex flex-col justify-center">
           <p className="text-blue-500 font-semibold">About</p>
           <h1 className="text-6xl max-w-xl">
