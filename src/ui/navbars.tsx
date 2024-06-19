@@ -127,36 +127,30 @@ export const Navbar = () => {
 
 export const AccountNavbar = () => {
   const [isUserDropDownOpen, setIsUserDropDownOpen] = useState(false);
-  const dropdownRef = useRef(null);
+  // const dropdownRef = useRef(null);
   const buttonRef = useRef(null);
 
-  const handleClickOutside = (event: any) => {
-    if (
-      dropdownRef.current &&
-      !dropdownRef.current.contains(event.target) &&
-      buttonRef.current &&
-      !buttonRef.current.contains(event.target)
-    ) {
-      setIsUserDropDownOpen(false);
-    }
-  };
-
   useEffect(() => {
-    if (isUserDropDownOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside);
-    }
+    const handleOutSideClick = (event: any) => {
+      if (!buttonRef.current?.contains(event.target)) {
+        setIsUserDropDownOpen(false);
+      }
+    };
+
+    window.addEventListener("mousedown", handleOutSideClick);
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      window.removeEventListener("mousedown", handleOutSideClick);
     };
-  }, [isUserDropDownOpen]);
+  }, [buttonRef]);
 
   return (
     <div className="relative w-full">
       <nav className="bg-white border-gray-200 dark:bg-gray-900">
-        <div className="flex  items-center justify-between mx-auto p-4">
+        <div
+          className="flex  items-center justify-between mx-auto p-4"
+          // ref={buttonRef}
+        >
           <div className="flex gap-10 items-center">
             <a
               href="https://flowbite.com/"
@@ -208,7 +202,10 @@ export const AccountNavbar = () => {
               </form>
             </div>
           </div>
-          <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+          <div
+            className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse"
+            ref={buttonRef}
+          >
             <button
               type="button"
               className="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
@@ -217,7 +214,6 @@ export const AccountNavbar = () => {
               data-dropdown-toggle="user-dropdown"
               data-dropdown-placement="bottom"
               onClick={() => setIsUserDropDownOpen((prevState) => !prevState)}
-              ref={buttonRef}
             >
               <span className="sr-only">Open user menu</span>
               <img
