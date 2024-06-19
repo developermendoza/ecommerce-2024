@@ -9,6 +9,10 @@ export function middleware(request: NextRequest) {
     const cleanUrl = createUrlFriendly(request);
     return NextResponse.redirect(new URL(cleanUrl, request.url));
   }
+
+  if (request.nextUrl.pathname === "/account") {
+    return NextResponse.redirect(new URL("/account/overview", request.url));
+  }
 }
 
 const createUrlFriendly = (request: any) => {
