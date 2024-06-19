@@ -6,6 +6,7 @@ import Link from "next/link";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaTimes } from "react-icons/fa";
 import Search from "@/components/Search";
+import { usePathname } from "next/navigation";
 
 export const MobileNavbar = () => {
   const [isMobileNavbarOpen, setisMobileNavbar] = useState(false);
@@ -60,12 +61,14 @@ export const MobileNavbar = () => {
 
 export const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const pathname = usePathname();
   const toggleModal = () => {
     setIsModalOpen((prevState) => !prevState);
   };
   const stopPropagation = (e: any) => {
     e.stopPropagation();
   };
+  if (pathname.includes("/account")) return null;
   return (
     <nav className="bg-[#f8f7f5] px-6">
       <div>
@@ -120,4 +123,8 @@ export const Navbar = () => {
       <MobileNavbar />
     </nav>
   );
+};
+
+export const AccountNavbar = () => {
+  return <div>AccountNavbar</div>;
 };
