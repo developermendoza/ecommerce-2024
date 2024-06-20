@@ -46,9 +46,9 @@ const OrderDetails = ({ params }: { params: { slug: any } }) => {
             <tr className="bg-gray-700">
               <th
                 scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                className="px-6 py-4 font-medium  whitespace-nowrap text-white"
               >
-                Apple MacBook Pro 17"
+                Apple MacBook Pro 17&quot;
               </th>
               <td className="px-6 py-4">$128.00</td>
               <td className="px-6 py-4">1</td>
@@ -58,7 +58,7 @@ const OrderDetails = ({ params }: { params: { slug: any } }) => {
             <tr className="bg-gray-700">
               <th
                 scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                className="px-6 py-4 font-medium whitespace-nowrap text-white"
               >
                 Microsoft Surface Pro
               </th>
@@ -70,7 +70,7 @@ const OrderDetails = ({ params }: { params: { slug: any } }) => {
             <tr className="bg-gray-700">
               <th
                 scope="row"
-                className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                className="px-6 py-4 font-medium whitespace-nowrap text-white"
               >
                 Magic Mouse 2
               </th>
