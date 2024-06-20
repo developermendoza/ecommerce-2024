@@ -81,6 +81,23 @@ const OrderDetails = ({ params }: { params: { slug: any } }) => {
             </tr>
           </tbody>
         </table>
+        <hr className="my-8" />
+        <div className="grid grid-cols-3">
+          <div className="flex justify-evenly col-start-3">
+            <div className="text-gray-300 flex flex-col gap-4">
+              <p>SUBTOTAL</p>
+              <p>TAX RATE</p>
+              <p>DISCOUNT</p>
+              <p className="text-white font-bold text-lg">TOTAL</p>
+            </div>
+            <div className="text-white flex flex-col gap-4">
+              <p>$415.00</p>
+              <p>5%</p>
+              <p>$64.00</p>
+              <p className="font-bold text-lg">$351.00</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

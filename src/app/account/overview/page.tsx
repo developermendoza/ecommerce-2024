@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { FaUserEdit } from "react-icons/fa";
+import Link from "next/link";
 
 const OverviewPage = () => {
   return (
@@ -134,7 +135,14 @@ const OverviewPage = () => {
                   <td className="px-6 py-4">5/9/2024</td>
                   <td className="px-6 py-4">$65.78</td>
                   <td className="px-6 py-4">Completed</td>
-                  <td>View details</td>
+                  <td>
+                    <Link
+                      href="/account/orders/00731"
+                      className="text-blue-400 underline hover:text-white cursor-pointer"
+                    >
+                      View details
+                    </Link>
+                  </td>
                 </tr>
                 <tr className="border-b bg-gray-800 border-gray-700">
                   <th
@@ -146,7 +154,14 @@ const OverviewPage = () => {
                   <td className="px-6 py-4">3/9/2024</td>
                   <td className="px-6 py-4">$108.85</td>
                   <td className="px-6 py-4">Completed</td>
-                  <td>View details</td>
+                  <td>
+                    <Link
+                      href="/account/orders/00730"
+                      className="text-blue-400 underline hover:text-white cursor-pointer"
+                    >
+                      View details
+                    </Link>
+                  </td>
                 </tr>
                 <tr className="bg-gray-800">
                   <th
@@ -158,7 +173,14 @@ const OverviewPage = () => {
                   <td className="px-6 py-4">8/15/2020</td>
                   <td className="px-6 py-4">$99.32</td>
                   <td className="px-6 py-4">Completed</td>
-                  <td>View details</td>
+                  <td>
+                    <Link
+                      href="/account/orders/00729"
+                      className="text-blue-400 underline hover:text-white cursor-pointer"
+                    >
+                      View details
+                    </Link>
+                  </td>
                 </tr>
               </tbody>
             </table>
