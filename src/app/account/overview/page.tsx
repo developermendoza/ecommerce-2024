@@ -2,11 +2,17 @@ import Image from "next/image";
 import React from "react";
 import { FaUserEdit } from "react-icons/fa";
 import Link from "next/link";
+import { AccountBreadcrumbs } from "@/ui/breadcrumbs";
 
 const OverviewPage = () => {
   return (
     <div>
-      <h1 className="font-semibold text-2xl mb-4">Welcome Jennifer!</h1>
+      <AccountBreadcrumbs
+        currentPage="overview"
+        isPageDetail={false}
+        secondPage=""
+      />
+      <h1 className="font-bold text-2xl mb-4">Welcome Jennifer!</h1>
       <div className="grid grid-cols-5 grid-rows-6 gap-4">
         <div
           className="p-8 bg-[#111111] rounded-lg"

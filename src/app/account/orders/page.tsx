@@ -1,12 +1,18 @@
 import React from "react";
 import { FaSort } from "react-icons/fa";
 import Link from "next/link";
+import { AccountBreadcrumbs } from "@/ui/breadcrumbs";
 
 const OrdersPage = () => {
   return (
     <div>
-      <h2 className="text-lg font-semibold">Orders</h2>
-      <div className="relative overflow-x-auto shadow-md sm:rounded-lg pt-6">
+      <AccountBreadcrumbs
+        currentPage="orders"
+        isPageDetail={false}
+        secondPage=""
+      />
+      <h1 className="font-bold text-2xl mb-4">Orders</h1>
+      <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <div className="pb-4 ">
           <label htmlFor="table-search" className="sr-only">
             Search
