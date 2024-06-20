@@ -128,11 +128,11 @@ export const Navbar = () => {
 
 export const AccountNavbar = () => {
   const [isUserDropDownOpen, setIsUserDropDownOpen] = useState(false);
-  const buttonRef = useRef(null);
+  const divRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleOutSideClick = (event: any) => {
-      if (buttonRef.current != event.target) {
+      if (!divRef.current?.contains(event.target as Node)) {
         setIsUserDropDownOpen(false);
       }
     };
@@ -142,10 +142,10 @@ export const AccountNavbar = () => {
     return () => {
       window.removeEventListener("mousedown", handleOutSideClick);
     };
-  }, [buttonRef]);
+  }, [divRef]);
 
   return (
-    <div className="relative ">
+    <div className="relative">
       <nav className="bg-[#111111] border-b-2 border-gray-400">
         <div className="flex items-center justify-between mx-auto p-4">
           <div className="flex gap-10 items-center">
@@ -200,10 +200,7 @@ export const AccountNavbar = () => {
               </form>
             </div>
           </div>
-          <div
-            className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse"
-            ref={buttonRef}
-          >
+          <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
             <button
               type="button"
               className="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 focus:ring-gray-600"
@@ -230,7 +227,7 @@ export const AccountNavbar = () => {
                 isUserDropDownOpen ? "" : "hidden"
               } top-[40px] right-[20px] my-4 text-base list-none divide-y divide-gray-100 rounded-lg shadow bg-gray-700 dark:divide-gray-600"
             id="user-dropdown`}
-              ref={buttonRef}
+              ref={divRef}
             >
               <div className="px-4 py-3">
                 <span className="block text-sm text-white">Bonnie Green</span>
@@ -240,36 +237,36 @@ export const AccountNavbar = () => {
               </div>
               <ul className="py-2" aria-labelledby="user-menu-button">
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    href="/account/overview"
                     className="block px-4 py-2 text-sm hover:bg-gray-600 text-gray-200 hover:text-white"
                   >
                     Overview
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    href="/account/settings"
                     className="block px-4 py-2 text-sm hover:bg-gray-600 text-gray-200 hover:text-white"
                   >
                     Settings
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    href="/account/profile"
                     className="block px-4 py-2 text-sm hover:bg-gray-600 text-gray-200 hover:text-white"
                   >
                     Profile
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    href="/account/orders"
                     className="block px-4 py-2 text-sm hover:bg-gray-600 text-gray-200 hover:text-white mb-2"
                   >
                     Orders
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <a
