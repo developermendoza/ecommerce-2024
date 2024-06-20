@@ -7,6 +7,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { FaTimes } from "react-icons/fa";
 import Search from "@/components/Search";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 export const MobileNavbar = () => {
   const [isMobileNavbarOpen, setisMobileNavbar] = useState(false);
@@ -127,12 +128,11 @@ export const Navbar = () => {
 
 export const AccountNavbar = () => {
   const [isUserDropDownOpen, setIsUserDropDownOpen] = useState(false);
-  // const dropdownRef = useRef(null);
   const buttonRef = useRef(null);
 
   useEffect(() => {
     const handleOutSideClick = (event: any) => {
-      if (!buttonRef.current?.contains(event.target)) {
+      if (buttonRef.current != event.target) {
         setIsUserDropDownOpen(false);
       }
     };
@@ -145,23 +145,21 @@ export const AccountNavbar = () => {
   }, [buttonRef]);
 
   return (
-    <div className="relative w-full">
-      <nav className="bg-white border-gray-200 dark:bg-gray-900">
-        <div
-          className="flex  items-center justify-between mx-auto p-4"
-          // ref={buttonRef}
-        >
+    <div className="relative ">
+      <nav className="bg-[#111111] border-b-2 border-gray-400">
+        <div className="flex items-center justify-between mx-auto p-4">
           <div className="flex gap-10 items-center">
             <a
               href="https://flowbite.com/"
               className="flex items-center space-x-3 rtl:space-x-reverse"
             >
-              <img
+              <Image
                 src="https://flowbite.com/docs/images/logo.svg"
-                className="h-8"
+                height={20}
+                width={20}
                 alt="Flowbite Logo"
               />
-              <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+              <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">
                 Flowbite
               </span>
             </a>
@@ -216,11 +214,15 @@ export const AccountNavbar = () => {
               onClick={() => setIsUserDropDownOpen((prevState) => !prevState)}
             >
               <span className="sr-only">Open user menu</span>
-              <img
-                className="w-8 h-8 rounded-full"
-                src="/images/about/ceo.jpeg"
-                alt="user photo"
-              />
+              <div className="relative w-8 h-8">
+                <Image
+                  src="/images/about/ceo.jpeg"
+                  style={{ objectFit: "cover" }}
+                  fill
+                  alt="user photo"
+                  className="rounded-full"
+                />
+              </div>
             </button>
             {/* Dropdown menu */}
             <div

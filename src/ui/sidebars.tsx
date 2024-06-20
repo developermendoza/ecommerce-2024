@@ -1,4 +1,10 @@
 import { IoIosArrowUp } from "react-icons/io";
+import { MdDashboard } from "react-icons/md";
+import { IoSettings } from "react-icons/io5";
+import { RiProfileFill } from "react-icons/ri";
+import { FaShoppingBag } from "react-icons/fa";
+import { PiSignOutBold } from "react-icons/pi";
+
 import Image from "next/image";
 import { getBlogs, getCategories, getTags } from "@/utils";
 import Link from "next/link";
@@ -233,5 +239,44 @@ export const BlogSidebar = async () => {
         <Tags tags={tags} />
       </div>
     </aside>
+  );
+};
+
+export const AccountSidebar = () => {
+  return (
+    <div className="bg-[#111111] flex-grow border-r-2 border-gray-400 text-gray-300 py-8 relative">
+      <ul>
+        <Link href="/account/overview">
+          <li className="flex gap-4 items-center p-4 text-xl">
+            <MdDashboard />
+            Overview
+          </li>
+        </Link>
+        <Link href="/account/settings">
+          <li className="flex gap-4 items-center p-4 text-xl">
+            <IoSettings />
+            Settings
+          </li>
+        </Link>
+        <Link href="/account/profile">
+          <li className="flex gap-4 items-center p-4 text-xl">
+            <RiProfileFill />
+            Profile
+          </li>
+        </Link>
+        <Link href="/account/orders">
+          <li className="flex gap-4 items-center p-4 text-xl">
+            <FaShoppingBag />
+            Orders
+          </li>
+        </Link>
+      </ul>
+      <div className="border-t-2 border-gray-400 absolute bottom-0 right-0 left-0">
+        <p className="flex items-center gap-4 p-4 text-xl">
+          <PiSignOutBold />
+          Signout
+        </p>
+      </div>
+    </div>
   );
 };

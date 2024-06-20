@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-// import "./globals.css";
-import Footer from "@/components/Footer";
 import { AccountNavbar } from "@/ui/navbars";
-import { AccountFooter } from "@/ui/footers";
+import { AccountSidebar } from "@/ui/sidebars";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,10 +16,16 @@ export default function AccountLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <section>
-      <AccountNavbar />
-      {children}
-      <AccountFooter />
+    <section className="grid grid-cols-5 grid-rows-[auto_1fr]  h-screen">
+      <div className="col-start-1 col-end-6 row-start-1 row-end-2 ">
+        <AccountNavbar />
+      </div>
+      <div className="col-start-1 col-end-2 row-start-2 row-end-3 flex flex-col h-full">
+        <AccountSidebar />
+      </div>
+      <div className="col-start-2 col-end-6 row-start-2 row-end-6 bg-[#222222] p-6 text-white overflow-y-scroll">
+        {children}
+      </div>
     </section>
   );
 }
