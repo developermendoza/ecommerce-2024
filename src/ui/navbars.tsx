@@ -167,14 +167,14 @@ export const AccountNavbar = () => {
               <form className="block w-full">
                 <label
                   htmlFor="default-search"
-                  className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
+                  className="mb-2 text-sm font-medium sr-only text-white"
                 >
                   Search
                 </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                     <svg
-                      className="w-4 h-4 text-gray-500 dark:text-gray-400"
+                      className="w-4 h-4 text-gray-400"
                       aria-hidden="true"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -192,7 +192,7 @@ export const AccountNavbar = () => {
                   <input
                     type="search"
                     id="default-search"
-                    className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    className="block w-full p-4 ps-10 text-sm border border-gray-300 rounded-lg bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
                     placeholder="Search Mockups, Logos..."
                     required
                   />
@@ -206,7 +206,7 @@ export const AccountNavbar = () => {
           >
             <button
               type="button"
-              className="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+              className="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 focus:ring-gray-600"
               id="user-menu-button"
               aria-expanded="false"
               data-dropdown-toggle="user-dropdown"
@@ -228,15 +228,13 @@ export const AccountNavbar = () => {
             <div
               className={`z-50 absolute ${
                 isUserDropDownOpen ? "" : "hidden"
-              } top-[40px] right-[20px] my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
+              } top-[40px] right-[20px] my-4 text-base list-none divide-y divide-gray-100 rounded-lg shadow bg-gray-700 dark:divide-gray-600"
             id="user-dropdown`}
               ref={buttonRef}
             >
               <div className="px-4 py-3">
-                <span className="block text-sm text-gray-900 dark:text-white">
-                  Bonnie Green
-                </span>
-                <span className="block text-sm text-gray-500 truncate dark:text-gray-400">
+                <span className="block text-sm text-white">Bonnie Green</span>
+                <span className="block text-sm truncate text-gray-400">
                   name@flowbite.com
                 </span>
               </div>
@@ -244,15 +242,15 @@ export const AccountNavbar = () => {
                 <li>
                   <a
                     href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                    className="block px-4 py-2 text-sm hover:bg-gray-600 text-gray-200 hover:text-white"
                   >
-                    Dashboard
+                    Overview
                   </a>
                 </li>
                 <li>
                   <a
                     href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                    className="block px-4 py-2 text-sm hover:bg-gray-600 text-gray-200 hover:text-white"
                   >
                     Settings
                   </a>
@@ -260,15 +258,23 @@ export const AccountNavbar = () => {
                 <li>
                   <a
                     href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                    className="block px-4 py-2 text-sm hover:bg-gray-600 text-gray-200 hover:text-white"
                   >
-                    Earnings
+                    Profile
                   </a>
                 </li>
                 <li>
                   <a
                     href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                    className="block px-4 py-2 text-sm hover:bg-gray-600 text-gray-200 hover:text-white mb-2"
+                  >
+                    Orders
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 text-sm hover:bg-gray-600 text-gray-200 hover:text-white border-gray-100 border-t"
                   >
                     Sign out
                   </a>

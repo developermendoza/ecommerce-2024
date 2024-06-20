@@ -247,25 +247,25 @@ export const AccountSidebar = () => {
     <div className="bg-[#111111] flex-grow border-r-2 border-gray-400 text-gray-300 py-8 relative">
       <ul>
         <Link href="/account/overview">
-          <li className="flex gap-4 items-center p-4 text-xl">
+          <li className="flex gap-4 items-center p-4 text-xl hover:text-white">
             <MdDashboard />
             Overview
           </li>
         </Link>
         <Link href="/account/settings">
-          <li className="flex gap-4 items-center p-4 text-xl">
+          <li className="flex gap-4 items-center p-4 text-xl hover:text-white">
             <IoSettings />
             Settings
           </li>
         </Link>
         <Link href="/account/profile">
-          <li className="flex gap-4 items-center p-4 text-xl">
+          <li className="flex gap-4 items-center p-4 text-xl hover:text-white">
             <RiProfileFill />
             Profile
           </li>
         </Link>
         <Link href="/account/orders">
-          <li className="flex gap-4 items-center p-4 text-xl">
+          <li className="flex gap-4 items-center p-4 text-xl hover:text-white">
             <FaShoppingBag />
             Orders
           </li>
