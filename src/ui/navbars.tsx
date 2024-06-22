@@ -8,6 +8,7 @@ import { FaTimes } from "react-icons/fa";
 import Search from "@/components/Search";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import { CartSidebar } from "@/ui/sidebars";
 
 export const MobileNavbar = () => {
   const [isMobileNavbarOpen, setisMobileNavbar] = useState(false);
@@ -63,6 +64,23 @@ export const MobileNavbar = () => {
 export const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const pathname = usePathname();
+  const [isUserDropDownOpen, setIsUserDropDownOpen] = useState(false);
+  const divRef = useRef<HTMLDivElement>(null);
+  const [isCartSidebarOpen, setIsCartSidebarOpen] = useState(false);
+
+  useEffect(() => {
+    const handleOutSideClick = (event: any) => {
+      if (!divRef.current?.contains(event.target as Node)) {
+        setIsUserDropDownOpen(false);
+      }
+    };
+
+    window.addEventListener("mousedown", handleOutSideClick);
+
+    return () => {
+      window.removeEventListener("mousedown", handleOutSideClick);
+    };
+  }, [divRef]);
   const toggleModal = () => {
     setIsModalOpen((prevState) => !prevState);
   };
@@ -71,13 +89,13 @@ export const Navbar = () => {
   };
   if (pathname.includes("/account")) return null;
   return (
-    <nav className="bg-[#f8f7f5] px-6">
+    <nav className="bg-[#f8f7f5] px-10">
       <div>
         {isModalOpen && (
           <Search toggleModal={toggleModal} stopPropagation={stopPropagation} />
         )}
       </div>
-      <div className="hidden md:block max-w-6xl m-auto py-4">
+      <div className="hidden md:block max-w-6xl m-auto py-10">
         <div className="flex justify-between">
           <ul className="flex justify-between gap-6 items-center">
             <li>
@@ -105,18 +123,148 @@ export const Navbar = () => {
             <li className="cursor-pointer" onClick={toggleModal}>
               <SearchIcon />
             </li>
-            <li>
-              <Link href="/login">
+            <li className="flex md:order-2 rtl:space-x-reverse cursor-pointer relative">
+              <div
+                onClick={() => setIsUserDropDownOpen((prevState) => !prevState)}
+              >
                 <UserIcon />
-              </Link>
+              </div>
+              {/* Dropdown menu */}
+              <div
+                className={`z-50 absolute ${
+                  isUserDropDownOpen ? "" : "hidden"
+                } top-[20px] right-0 my-4 text-base list-none divide-y divide-gray-100 rounded-lg shadow bg-gray-700 dark:divide-gray-600"
+            id="user-dropdown`}
+                ref={divRef}
+              >
+                <div className="px-4 py-3">
+                  <span className="block text-sm text-white">Bonnie Green</span>
+                  <span className="block text-sm truncate text-gray-400">
+                    name@flowbite.com
+                  </span>
+                </div>
+                <ul className="py-2" aria-labelledby="user-menu-button">
+                  <li>
+                    <Link
+                      href="/account"
+                      className="block px-4 py-2 text-sm hover:bg-gray-600 text-gray-200 hover:text-white"
+                    >
+                      My Account
+                    </Link>
+                  </li>
+                  <li className="block px-4 py-2 text-sm hover:bg-gray-600 text-gray-200 hover:text-white border-gray-100 border-t">
+                    <div className="flex justify-evenly">
+                      <Link href="/login">Login</Link>
+                      <div className="h-30 w-[1px] bg-gray-300"></div>
+                      <Link href="/register">Register</Link>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <button
+                data-collapse-toggle="navbar-user"
+                type="button"
+                className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                aria-controls="navbar-user"
+                aria-expanded="false"
+              >
+                <span className="sr-only">Open main menu</span>
+                <svg
+                  className="w-5 h-5"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 17 14"
+                >
+                  <path
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M1 1h15M1 7h15M1 13h15"
+                  />
+                </svg>
+              </button>
             </li>
-            <li>
+            <li className="relative">
               <HeartIcon />
+              <p className="h-7 w-7 bg-black absolute -right-4 -top-8 flex justify-center items-center font-bold text-xs rounded-full text-white">
+                2
+              </p>
             </li>
-            <li>
-              <Link href="/cart">
+            {/* <li className="flex md:order-2 rtl:space-x-reverse cursor-pointer relative">
+              <CartBagIcon /> */}
+            {/* <div onClick={}>
+              </div> */}
+            {/* </li> */}
+            <li className="flex md:order-2 rtl:space-x-reverse  relative">
+              <div
+                className="cursor-pointer relative"
+                onClick={() => setIsCartSidebarOpen((prevState) => !prevState)}
+              >
                 <CartBagIcon />
-              </Link>
+              </div>
+              <p className="h-7 w-7 bg-black absolute -right-4 -top-8 flex justify-center items-center font-bold text-xs rounded-full text-white">
+                2
+              </p>
+              {/* Dropdown menu */}
+              <div
+                className={`z-50 fixed ${
+                  isCartSidebarOpen ? "" : "hidden"
+                } top-0 right-0 bottom-0 overflow-y-scroll bg-white text-base list-none w-full max-w-[450px]  rounded-lg shadow"
+            id="user-dropdown`}
+                ref={divRef}
+              >
+                <CartSidebar setIsCartSidebarOpen={setIsCartSidebarOpen} />
+              </div>
+              {/* <div className="px-4 py-3">
+                  <span className="block text-sm text-white">Bonnie Green</span>
+                  <span className="block text-sm truncate text-gray-400">
+                    name@flowbite.com
+                  </span>
+                </div>
+                <ul className="py-2" aria-labelledby="user-menu-button">
+                  <li>
+                    <Link
+                      href="/account"
+                      className="block px-4 py-2 text-sm hover:bg-gray-600 text-gray-200 hover:text-white"
+                    >
+                      My Account
+                    </Link>
+                  </li>
+                  <li className="block px-4 py-2 text-sm hover:bg-gray-600 text-gray-200 hover:text-white border-gray-100 border-t">
+                    <div className="flex justify-evenly">
+                      <Link href="/login">Login</Link>
+                      <div className="h-30 w-[1px] bg-gray-300"></div>
+                      <Link href="/register">Register</Link>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <button
+                data-collapse-toggle="navbar-user"
+                type="button"
+                className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                aria-controls="navbar-user"
+                aria-expanded="false"
+              >
+                <span className="sr-only">Open main menu</span>
+                <svg
+                  className="w-5 h-5"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 17 14"
+                >
+                  <path
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M1 1h15M1 7h15M1 13h15"
+                  />
+                </svg>
+              </button> */}
             </li>
           </ul>
         </div>
@@ -149,8 +297,8 @@ export const AccountNavbar = () => {
       <nav className="bg-[#111111] border-b-2 border-gray-400">
         <div className="flex items-center justify-between mx-auto p-4">
           <div className="flex gap-10 items-center">
-            <a
-              href="https://flowbite.com/"
+            <Link
+              href="/"
               className="flex items-center space-x-3 rtl:space-x-reverse"
             >
               <Image
@@ -160,9 +308,9 @@ export const AccountNavbar = () => {
                 alt="Flowbite Logo"
               />
               <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">
-                Flowbite
+                Guza
               </span>
-            </a>
+            </Link>
             <div className="w-full max-w-[550px]">
               <form className="block w-full">
                 <label
@@ -192,8 +340,8 @@ export const AccountNavbar = () => {
                   <input
                     type="search"
                     id="default-search"
-                    className="block w-full p-4 ps-10 text-sm border border-gray-300 rounded-lg bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="Search Mockups, Logos..."
+                    className="block w-full p-2 ps-10 text-sm border border-gray-300 rounded-lg bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="Search..."
                     required
                   />
                 </div>

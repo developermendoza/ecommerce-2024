@@ -4,10 +4,36 @@ import { IoSettings } from "react-icons/io5";
 import { RiProfileFill } from "react-icons/ri";
 import { FaShoppingBag } from "react-icons/fa";
 import { PiSignOutBold } from "react-icons/pi";
+import { FaTimes } from "react-icons/fa";
+import { PrimaryButton, SecondaryButton } from "@/ui/buttons";
 
 import Image from "next/image";
-import { getBlogs, getCategories, getTags } from "@/utils";
+import { getBlogs, getCategories, getProducts, getTags } from "@/utils";
 import Link from "next/link";
+
+const cart = [
+  {
+    id: 1,
+    name: "Ball Crew Shirt",
+    price: "12.00",
+    quantity: 2,
+    size: "S",
+    image: "/images/shop/man-shirt-01.png",
+    color: "blue",
+  },
+  {
+    id: 2,
+    name: "Ball Crew Shirt",
+    price: "24.00",
+    quantity: 1,
+    size: "M",
+    image: "/images/shop/man-sweater-02.png",
+    color: "red",
+  },
+];
+let total = 0;
+
+cart.map((item) => (total += parseFloat(item.price)));
 export const ShopSideBar = () => {
   return (
     <aside>
@@ -276,6 +302,369 @@ export const AccountSidebar = () => {
           <PiSignOutBold />
           Signout
         </p>
+      </div>
+    </div>
+  );
+};
+
+export const CartSidebar = ({
+  setIsCartSidebarOpen,
+}: {
+  setIsCartSidebarOpen: any;
+}) => {
+  const products = [
+    {
+      id: 1,
+      name: "Azure Breeze Shirt",
+      price: 25.99,
+      color: "Blue",
+      category: "Mens",
+      featuredImage: "/images/shop/man-shirt-01.png",
+      description: "A casual blue shirt perfect for everyday wear.",
+      sku: "SHIRT001",
+      stock: 60,
+      rating: 4.2,
+      reviews: 85,
+      brand: "CasualWear",
+      weight: "220g",
+      dimensions: "30x20x1 cm",
+      materials: "Cotton",
+      dateAdded: "2023-07-01",
+    },
+    {
+      id: 2,
+      name: "Ivory Executive Shirt",
+      price: 35.99,
+      color: "White",
+      category: "Mens",
+      featuredImage: "/images/shop/man-shirt-02.png",
+      description: "A formal white shirt ideal for business meetings.",
+      sku: "SHIRT002",
+      stock: 45,
+      rating: 4.6,
+      reviews: 100,
+      brand: "BusinessAttire",
+      weight: "250g",
+      dimensions: "30x20x1 cm",
+      materials: "Cotton",
+      dateAdded: "2023-06-15",
+    },
+    {
+      id: 3,
+      name: "Golden Summer Shirt",
+      price: 20.99,
+      color: "Yellow",
+      category: "Mens",
+      featuredImage: "/images/shop/man-shirt-03.png",
+      description: "A bright yellow shirt perfect for summer.",
+      sku: "SHIRT003",
+      stock: 70,
+      rating: 4.4,
+      reviews: 90,
+      brand: "SunnyDays",
+      weight: "210g",
+      dimensions: "30x20x1 cm",
+      materials: "Cotton",
+      dateAdded: "2023-06-01",
+    },
+    {
+      id: 4,
+      name: "Urban Denim Shirt",
+      price: 45.99,
+      color: "Denim",
+      category: "Mens",
+      featuredImage: "/images/shop/man-shirt-04.png",
+      description: "A sturdy denim shirt for casual wear.",
+      sku: "SHIRT004",
+      stock: 35,
+      rating: 4.7,
+      reviews: 110,
+      brand: "DenimCo",
+      weight: "300g",
+      dimensions: "30x20x1 cm",
+      materials: "Denim",
+      dateAdded: "2023-05-25",
+    },
+    {
+      id: 5,
+      name: "Rustic Plaid Shirt",
+      price: 32.99,
+      color: "Red",
+      category: "Mens",
+      featuredImage: "/images/shop/man-shirt-05.png",
+      description: "A red plaid shirt great for outdoor activities.",
+      sku: "SHIRT005",
+      stock: 40,
+      rating: 4.5,
+      reviews: 75,
+      brand: "OutdoorGear",
+      weight: "240g",
+      dimensions: "30x20x1 cm",
+      materials: "Cotton",
+      dateAdded: "2023-05-10",
+    },
+    {
+      id: 6,
+      name: "Heathered Comfort Sweater",
+      price: 55.99,
+      color: "Gray",
+      category: "Mens",
+      featuredImage: "/images/shop/man-sweater-01.png",
+      description: "A comfortable gray cotton sweater for cool weather.",
+      sku: "SWEATER001",
+      stock: 25,
+      rating: 4.8,
+      reviews: 65,
+      brand: "ComfortWear",
+      weight: "500g",
+      dimensions: "40x30x5 cm",
+      materials: "Cotton",
+      dateAdded: "2023-04-20",
+    },
+    {
+      id: 7,
+      name: "Navy Winter Warmth Sweater",
+      price: 65.99,
+      color: "Navy",
+      category: "Mens",
+      featuredImage: "/images/shop/man-sweater-02.png",
+      description: "A warm navy wool sweater for winter.",
+      sku: "SWEATER002",
+      stock: 30,
+      rating: 4.9,
+      reviews: 80,
+      brand: "WinterCozy",
+      weight: "600g",
+      dimensions: "40x30x5 cm",
+      materials: "Wool",
+      dateAdded: "2023-03-15",
+    },
+    {
+      id: 8,
+      name: "Emerald Knit Sweater",
+      price: 50.99,
+      color: "Green",
+      category: "Mens",
+      featuredImage: "/images/shop/man-sweater-03.png",
+      description: "A stylish green knitted sweater for fall.",
+      sku: "SWEATER003",
+      stock: 20,
+      rating: 4.3,
+      reviews: 50,
+      brand: "KnitFashion",
+      weight: "550g",
+      dimensions: "40x30x5 cm",
+      materials: "Wool, Acrylic",
+      dateAdded: "2023-02-28",
+    },
+    {
+      id: 1,
+      name: "Blossom Pink Blouse",
+      price: 29.99,
+      color: "Pink",
+      category: "Womens",
+      featuredImage: "/images/shop/woman-shirt-01.png",
+      description: "A pretty pink floral blouse perfect for spring.",
+      sku: "BLOUSE001",
+      stock: 55,
+      rating: 4.6,
+      reviews: 95,
+      brand: "SpringStyle",
+      weight: "180g",
+      dimensions: "30x20x1 cm",
+      materials: "Polyester",
+      dateAdded: "2023-05-05",
+    },
+    {
+      id: 1,
+      name: "Snowy Silk Blouse",
+      price: 49.99,
+      color: "White",
+      category: "Womens",
+      featuredImage: "/images/shop/woman-skirt-01.png",
+      description: "An elegant white silk blouse for formal occasions.",
+      sku: "BLOUSE002",
+      stock: 40,
+      rating: 4.8,
+      reviews: 100,
+      brand: "ElegantWear",
+      weight: "150g",
+      dimensions: "30x20x1 cm",
+      materials: "Silk",
+      dateAdded: "2023-04-15",
+    },
+  ];
+  return (
+    <div>
+      <div
+        onClick={() => setIsCartSidebarOpen(false)}
+        className="fixed top-0 right-0 left-0 bottom-0 bg-black opacity-60"
+      ></div>
+      <div className="bg-white z-[9999] relative">
+        <div className="p-6">
+          <div className="flex justify-between">
+            <h2 className="font-semibold text-2xl">Your Cart (2)</h2>
+            <FaTimes
+              className="cursor-pointer"
+              onClick={() => setIsCartSidebarOpen(false)}
+            />
+          </div>
+          <p className="my-4">
+            <span className="font-semibold">Free Shipping</span> or orders over{" "}
+            <span className="font-semibold">$200.00</span>
+          </p>
+        </div>
+        <div className="bg-[#eee] p-4">
+          <div className="max-w-6xl m-auto">
+            <div>
+              {cart.map((item) => (
+                <div
+                  className="grid grid-cols-5 gap-2 items-center bg-[#eee] p-2 mb-4 relative"
+                  key={item.id}
+                >
+                  <div className="flex gap-2 items-center col-span-2">
+                    <div className="relative h-[150px] w-[180px] bg-gray-100">
+                      <Image
+                        src={item.image}
+                        alt=""
+                        fill
+                        style={{ objectFit: "contain", padding: "12px" }}
+                      />
+                    </div>
+                  </div>
+                  <div className="text-left col-span-2">
+                    <div>
+                      <p className="font-semibold text-sm">{item.name}</p>
+                      <div className="flex gap-4 py-2">
+                        <p>
+                          Color:
+                          <span className="font-semibold capitalize">
+                            {" "}
+                            {item.color}{" "}
+                          </span>
+                        </p>
+                        <p>
+                          Size:{" "}
+                          <span className="font-semibold">{item.size}</span>
+                        </p>
+                      </div>
+                    </div>
+                    <form className="max-w-xs mx-auto">
+                      <div className="relative flex items-center max-w-[8rem]">
+                        <button
+                          type="button"
+                          id="decrement-button"
+                          data-input-counter-decrement="quantity-input"
+                          className="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-s-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none"
+                        >
+                          <svg
+                            className="w-3 h-3 text-gray-900 dark:text-white"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 18 2"
+                          >
+                            <path
+                              stroke="currentColor"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              d="M1 1h16"
+                            />
+                          </svg>
+                        </button>
+                        <input
+                          type="text"
+                          id="quantity-input"
+                          data-input-counter
+                          aria-describedby="helper-text-explanation"
+                          className="bg-gray-50 border-x-0 border-gray-300 h-11 text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          placeholder="1"
+                          required
+                        />
+                        <button
+                          type="button"
+                          id="increment-button"
+                          data-input-counter-increment="quantity-input"
+                          className="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-e-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none"
+                        >
+                          <svg
+                            className="w-3 h-3 text-gray-900 dark:text-white"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 18 18"
+                          >
+                            <path
+                              stroke="currentColor"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              d="M9 1v16M1 9h16"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+
+                  <div className="">
+                    <FaTimes className="absolute top-4 right-4" />
+                    <p className="font-semibold text-right text-gray-600 absolute bottom-[30px] right-0">
+                      ${item.price}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className="p-6">
+          <h2 className="font-semibold text-lg">You May Also Like</h2>
+        </div>
+        <div className="grid grid-cols-2 gap-4 p-4 pt-0">
+          {products.splice(0, 2).map((product) => (
+            <div key={product.id}>
+              <div className="w-full max-w-[400px] h-[250px] bg-[#f1f1f1] relative">
+                <Image
+                  src={product.featuredImage}
+                  className="p-8"
+                  fill
+                  style={{ objectFit: "contain" }}
+                  alt=""
+                />
+              </div>
+              <div className="capitalize text-center lg:text-left mt-4 text-sm">
+                <p className="font-bold text-sm">{product.name}</p>
+                <p className="font-semibold text-gray-700">
+                  ${product.price}.00
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="p-4 flex justify-between text-lg text-gray-500">
+          <p>Subtotal</p>
+          <p className="font-semibold text-gray-600">${total}.00</p>
+        </div>
+        <div className="p-4">
+          <div className="flex gap-4 justify-between">
+            <Link
+              href="/cart"
+              onClick={() => setIsCartSidebarOpen(false)}
+              className="w-full"
+            >
+              <p className="py-3 text-center text-black bg-white border border-2 border-black rounded hover:bg-black-600 focus:outline-none focus:ring-2 focus:ring-black-600 focus:ring-opacity-50">
+                View Cart
+              </p>
+            </Link>
+            <Link href="/checkout" className="w-full">
+              <p className="py-3  text-center text-white bg-black border border-2 border-black rounded hover:bg-black-600 focus:outline-none focus:ring-2 focus:ring-black-600 focus:ring-opacity-50">
+                Checkout
+              </p>
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );
